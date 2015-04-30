@@ -60,13 +60,67 @@ public class PickFourCards extends JFrame{
 	
 	ArrayList<ImageIcon> list = new ArrayList<ImageIcon>();
 	
-	
+
 	public PickFourCards(){
 		JPanel panel = new JPanel();
-		panel.add(jbtRefresh);
+		panel.setLayout(new GridLayout(1,4,1,1));
+		list.add(image1);
+		list.add(image2);
+		list.add(image3);
+		list.add(image4);
+		list.add(image5);
+		list.add(image6);
+		list.add(image7);
+		list.add(image8);
+		list.add(image9);
+		list.add(image10);
+		list.add(image11);
+		list.add(image12);
+		list.add(image13);
+		list.add(image14);
+		list.add(image15);
+		list.add(image16);
+		list.add(image17);
+		list.add(image18);
+		list.add(image19);
+		list.add(image21);
+		list.add(image22);
+		list.add(image23);
+		list.add(image24);
+		list.add(image25);
+		list.add(image26);
+		list.add(image27);
+		list.add(image28);
+		list.add(image29);
+		list.add(image30);
+		list.add(image31);
+		list.add(image32);
+		list.add(image33);
+		list.add(image34);
+		list.add(image35);
+		list.add(image36);
+		list.add(image37);
+		list.add(image38);
+		list.add(image39);
+		list.add(image40);
+		list.add(image41);
+		list.add(image42);
+		list.add(image43);
+		list.add(image44);
+		list.add(image45);
+		list.add(image46);
+		list.add(image47);
+		list.add(image48);
+		list.add(image49);
+		list.add(image50);
+		list.add(image51);
+		list.add(image52);
 		
-		this.add(panel,BorderLayout.SOUTH);
 		
+		
+		
+		this.add(jbtRefresh,BorderLayout.SOUTH);
+		this.add(panel,BorderLayout.CENTER);
 	}
 	
 	public static void main(String[] args){
