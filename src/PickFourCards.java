@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class PickFourCards extends JFrame{
 	private JButton jbtRefresh = new JButton("Refresh");
@@ -116,8 +116,11 @@ public class PickFourCards extends JFrame{
 		list.add(image51);
 		list.add(image52);
 		
-		
-		
+		Collections.shuffle(list);
+		panel.add(new JLabel(list.get(1)));
+		panel.add(new JLabel(list.get(2)));
+		panel.add(new JLabel(list.get(3)));
+		panel.add(new JLabel(list.get(4)));
 		
 		this.add(jbtRefresh,BorderLayout.SOUTH);
 		this.add(panel,BorderLayout.CENTER);
@@ -128,7 +131,7 @@ public class PickFourCards extends JFrame{
 		frame.setTitle("Pick Four Cards");
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(400, 200);
+		frame.setSize(300, 150);
 		frame.setVisible(true);
 	}
 	
