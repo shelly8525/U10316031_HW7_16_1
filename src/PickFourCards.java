@@ -6,7 +6,6 @@ import java.util.*;
 public class PickFourCards extends JFrame{
 	private JButton jbtRefresh = new JButton("Refresh");
 	JPanel panel = new JPanel();
-	CardPanel a = new CardPanel();
 	
 	private ImageIcon image1 = new ImageIcon("src/c1.png"); 
 	private ImageIcon image2 = new ImageIcon("src/c2.png");
@@ -128,7 +127,22 @@ public class PickFourCards extends JFrame{
 		this.add(jbtRefresh,BorderLayout.SOUTH);
 		this.add(panel,BorderLayout.CENTER);
 		
-		jbtRefresh.addActionListener(new CardList());
+		
+		
+		
+		jbtRefresh.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				panel.removeAll();
+				Collections.shuffle(list);
+				panel.add(new JLabel(list.get(1)));
+				panel.add(new JLabel(list.get(2)));
+				panel.add(new JLabel(list.get(3)));
+				panel.add(new JLabel(list.get(4)));
+			}
+		}
+		);
+	
 	}
 	
 	public static void main(String[] args){
@@ -139,26 +153,10 @@ public class PickFourCards extends JFrame{
 		frame.setSize(300, 150);
 		frame.setVisible(true);
 	}
-	
-	class CardList implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e){
-			a.change();
-		}
-	}
-	
-	class CardPanel extends JPanel{
-		public void change(){
-			panel.setLayout(new GridLayout(1,4,1,1));
 
-			Collections.shuffle(list);
-			panel.add(new JLabel(list.get(1)));
-			panel.add(new JLabel(list.get(2)));
-			panel.add(new JLabel(list.get(3)));
-			panel.add(new JLabel(list.get(4)));
-		}
-	}
 }
+	
+
 
 
 
