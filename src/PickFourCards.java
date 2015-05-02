@@ -4,14 +4,16 @@ import java.awt.event.*;
 import java.util.*;
 
 public class PickFourCards extends JFrame{
+	//add a button to the frame
 	private JButton jbtRefresh = new JButton("Refresh");
+	//create four label
 	private JLabel a; 
 	private JLabel b; 
 	private JLabel c; 
 	private JLabel d; 
-	
+	//add a panel to the frame
 	JPanel panel = new JPanel();
-	
+	//add 52 pictures address
 	private ImageIcon image1 = new ImageIcon("src/1.png"); 
 	private ImageIcon image2 = new ImageIcon("src/2.png");
 	private ImageIcon image3 = new ImageIcon("src/3.png");
@@ -67,10 +69,11 @@ public class PickFourCards extends JFrame{
 	
 	ArrayList<ImageIcon> list = new ArrayList<ImageIcon>();
 	
-
+	//the constructor 
 	public PickFourCards(){
-		
+		//add a gridLayout to the panel
 		panel.setLayout(new GridLayout(1,4,1,1));
+		//add 52 images to list 
 		list.add(image1);
 		list.add(image2);
 		list.add(image3);
@@ -122,43 +125,50 @@ public class PickFourCards extends JFrame{
 		list.add(image50);
 		list.add(image51);
 		list.add(image52);
-		
+		//pick 4 cards
 		Collections.shuffle(list);
+		//get 4 cards to label
 		a = new JLabel(list.get(1));
 		b = new JLabel(list.get(2));
 		c = new JLabel(list.get(3));
 		d = new JLabel(list.get(4));
-		
+		//add 4 cards to panel
 		panel.add(a);
 		panel.add(b);
 		panel.add(c);
 		panel.add(d);
 		
-		
+		//add jbtRefresh to south and panel to center
 		this.add(jbtRefresh,BorderLayout.SOUTH);
 		this.add(panel,BorderLayout.CENTER);
-				
+		//create and register anonymous inner-class listener
 		jbtRefresh.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e){
+				//pick 4 cards
 				Collections.shuffle(list);
 				a.setIcon(list.get(1));
 				b.setIcon(list.get(2));
 				c.setIcon(list.get(3));
 				d.setIcon(list.get(4));
+				//repaint the panel
 				panel.repaint();
 			}
 		}
 		);
 	
 	}
-	
+	//main method 
 	public static void main(String[] args){
+		//create a frame
 		JFrame frame = new PickFourCards();
 		frame.setTitle("Pick Four Cards");
+		//center the frame
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set the frame size
 		frame.setSize(300, 180);
+		//display the frame
 		frame.setVisible(true);
 	}
 
